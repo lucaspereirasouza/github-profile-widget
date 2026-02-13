@@ -12,7 +12,7 @@ const banner = `/**
 */
 `;
 
-const outfilePath = path.resolve('dist', `${libraryName}.min.js`);
+const outfilePath = path.resolve('public', 'dist', `${libraryName}.min.js`);
 
 esbuild
   .build({
