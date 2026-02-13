@@ -1,21 +1,46 @@
+:root {
+  --gh-card-bg: #fafafa;
+  --gh-card-border: #ddd;
+  --gh-card-text: #444;
+  --gh-card-name: #222;
+  --gh-card-link: #4183c4;
+  --gh-card-header-bg-start: #fafafa;
+  --gh-card-header-bg-end: #eaeaea;
+  --gh-card-header-border: #d5d5d5;
+  --gh-card-header-text: #555;
+}
+
+.theme-black {
+  --gh-card-bg: #0d1117;
+  --gh-card-border: #30363d;
+  --gh-card-text: #8b949e;
+  --gh-card-name: #c9d1d9;
+  --gh-card-link: #58a6ff;
+  --gh-card-header-bg-start: #161b22;
+  --gh-card-header-bg-end: #0d1117;
+  --gh-card-header-border: #30363d;
+  --gh-card-header-text: #c9d1d9;
+}
+
 & {
   width: 280px;
   border-radius: 5px;
   font-size: 16px;
   font-family: Helvetica;
-  background: #fafafa;
+  background: var(--gh-card-bg);
   border-width: 1px 1px 2px;
   border-style: solid;
-  border-color: #ddd;
+  border-color: var(--gh-card-border);
   overflow: hidden;
+  color: var(--gh-card-text);
 }
 
 a {
   text-decoration: none;
-  color: #444;
+  color: var(--gh-card-text);
 
   &:hover {
-    color: #4183c4;
+    color: var(--gh-card-link);
   }
 }
 
@@ -23,19 +48,19 @@ a {
   display: block;
   font-size: 1.2em;
   font-weight: bold;
-  color: #222;
+  color: var(--gh-card-name);
 }
 
 .error {
   & {
     font-size: 0.8em;
-    color: #444;
+    color: var(--gh-card-text);
     padding: 10px;
   }
 
   span {
     display: block;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--gh-card-border);
     padding-bottom: 5px;
     margin-bottom: 5px;
 

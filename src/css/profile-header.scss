@@ -1,5 +1,5 @@
 .profile {
-  background: #fff;
+  background: var(--gh-card-bg);
   overflow: hidden;
   padding: 15px 10px;
   padding-bottom: 0;
@@ -24,11 +24,11 @@
   &::before {
     position: absolute;
     top: -0.7em;
-    background: #fff;
+    background: var(--gh-card-bg);
     padding-right: 5px;
     content: 'Top languages';
     font-style: italic;
-    color: #555;
+    color: var(--gh-card-text);
   }
 
   li {
@@ -40,7 +40,8 @@
     &::after {
       content: '\2022';
       margin-left: 10px;
-      color: #999;
+      color: var(--gh-card-text);
+      opacity: 0.5;
     }
 
     &:last-child::after {
@@ -80,7 +81,7 @@
 /* followers number */
 .followMe span {
   position: relative;
-  background: #fff;
+  background: var(--gh-card-bg);
   margin-left: 8px;
   padding: 0 5px;
   color: #444;

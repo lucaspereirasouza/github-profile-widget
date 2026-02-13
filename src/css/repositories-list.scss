@@ -9,11 +9,11 @@
     display: block;
     width: 100%;
     font-weight: bold;
-    background: #eaeaea;
-    background-image: linear-gradient(#fafafa, #eaeaea);
-    border: solid #d5d5d5;
+    background: var(--gh-card-header-bg-end);
+    background-image: linear-gradient(var(--gh-card-header-bg-start), var(--gh-card-header-bg-end));
+    border: solid var(--gh-card-header-border);
     border-width: 1px 0;
-    color: #555;
+    color: var(--gh-card-header-text);
     font-size: 0.8em;
     padding: 5px 10px;
   }
@@ -23,7 +23,7 @@
     display: block;
     padding: 7px 10px;
     font-size: 0.9em;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--gh-card-border);
 
     &:first-of-type {
       border: none;
