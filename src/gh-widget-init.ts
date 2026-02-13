@@ -11,10 +11,19 @@ declare global {
 window.GitHubCard = GitHubCardWidget;
 
 document.addEventListener('DOMContentLoaded', () => {
-  const $defaultTemplate = document.querySelector('#github-card');
-  if ($defaultTemplate) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const usernameFromUrl = urlParams.get('username') || window.location.search.substring(1).split('&')[0]; // Support ?username=lucas OR just ?lucas
+  const themeFromUrl = urlParams.get('theme') as 'light' | 'black';
+
+  const $defaultTemplate = document.querySelector('#github-card') as HTMLElement;
+
+  if (usernameFromUrl || $defaultTemplate) {
     try {
-      const widget = new GitHubCardWidget();
+      const options = {
+        username: usernameFromUrl || undefined,
+        theme: themeFromUrl || undefined,
+      };
+      const widget = new GitHubCardWidget(options);
       widget.init().catch((error) => {
         console.error('Failed to initialize GitHub Card widget:', error);
       });

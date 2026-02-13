@@ -37,6 +37,7 @@ export class GitHubCardWidget {
       headerText: 'Most starred repositories',
       maxRepos: 5,
       hideTopLanguages: false,
+      theme: 'light',
     };
 
     return {
@@ -76,6 +77,9 @@ export class GitHubCardWidget {
     widgetConfig.hideTopLanguages =
       widgetConfig.hideTopLanguages || dataset.hideTopLanguages === 'true';
 
+    widgetConfig.theme =
+      (widgetConfig.theme || (dataset.theme as 'light' | 'black')) ?? 'light';
+
     if (!widgetConfig.username) {
       throw new Error('Username is required but not provided');
     }
@@ -86,6 +90,13 @@ export class GitHubCardWidget {
 
     // clear root template element to prepare space for widget
     DOMOperator.clearChildren($root);
+
+    // apply theme
+    if (options.theme === 'black') {
+      $root.classList.add('theme-black');
+    } else {
+      $root.classList.remove('theme-black');
+    }
 
     if (error) {
       const $errorSection = DOMOperator.createError(

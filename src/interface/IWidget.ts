@@ -6,7 +6,7 @@ export interface WidgetConfig {
   sortBy?: string;
   headerText?: string;
   maxRepos?: number;
-  hideTopLanguages?: boolean;
+  theme?: 'light' | 'black';
 }
 
 export interface ApiUserData {
