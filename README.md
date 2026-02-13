@@ -1,107 +1,70 @@
 # GitHub Profile Card
 
-> Widget shows your GitHub profile directly on your website.  
+> Widget shows your GitHub profile directly on your website or GitHub README.
 > Show your current projects — always up to date.
 
 ![Screenshot](./demo/screenshot.png)
 
-## Live [demo and configuration](https://piotrl.github.io/github-profile-card/demo?username=piotrl)
-
 ## Contents
 
-- [GitHub Profile Card](#github-profile-card)
-  - [Main features](#main-features)
-  - [README-friendly usage (API style)](#readme-friendly-usage-api-style)
-  - [Live demo and configuration](#live-demo-and-configuration)
-  - [Changelog](#changelog)
-- [Quick install](#quick-install)
-  - [Download](#download)
-  - [Advanced configuration](#advanced-configuration)
-  - [Configuration options](#configuration-options)
+- [🚀 Use in your GitHub Profile README](#use-in-your-github-profile-readme)
+- [Live demo and configuration](#live-demo-and-configuration)
+- [Quick install (for websites)](#quick-install-for-websites)
 - [FAQ](#faq)
-- [Feedback](#feedback)
 
-### Main features
+---
 
-- Top languages statistics
-- Last updated repositories
-- Configurable in HTML
-- Copy-Paste installation
-- No jQuery and any other libraries required
+### 🚀 Use in your GitHub Profile README
+
+To add this widget to your GitHub Profile, you should use it as a **Link**. GitHub does not support embedding interactive HTML directly in READMEs for security reasons.
+
+#### 1. Copy & Paste this Snippet
+Add this to your `README.md`:
+
+```markdown
+[![Interactive Profile Card](https://img.shields.io/badge/Interactive-Profile%20Card-blue?style=for-the-badge&logo=github)](https://github-profile-widget.vercel.app/?lucaspereirasouza&theme=black)
+```
+
+*(Replace `lucaspereirasouza` with your username)*
+
+#### 2. Advanced: URL Options
+You can link directly to your card using this format:
+`https://your-deployment.vercel.app/?YOUR_USERNAME&theme=black`
+
+*   **Theme**: Use `&theme=black` for dark mode.
+*   **Username**: You can use `?username=name` or just `?name`.
+
+---
+
+### 🛠️ Troubleshooting: "Invalid upstream response (401)"
+
+If you see a **401 Unauthorized** error when clicking the link or if the badge fails to load, it is likely because **Vercel Deployment Protection** is enabled.
+
+**How to fix:**
+1.  Go to your **Vercel Dashboard**.
+2.  Select your `github-profile-widget` project.
+3.  Go to **Settings** > **Deployment Protection**.
+4.  Ensure **Vercel Authentication** is **Disabled** for both Production and Preview environments.
+5.  Save changes.
+
+---
+
+### Live [demo and configuration](https://piotrl.github.io/github-profile-card/demo?username=piotrl)
 
 ### [Changelog](https://github.com/piotrl/github-profile-card/releases)
 
-### README-friendly usage (API style)
-
-You can use this widget directly in your GitHub profile README by linking to it. The simplest way is to use an `<iframe>` or a direct link that people can click to see your card.
-
-**URL Format:**
-`https://github-profile-widget.vercel.app/?username=YOUR_USERNAME&theme=black`
-
-*Tip: You can also use the shorthand `?YOUR_USERNAME`*
-
-**Example for README:**
-
-```markdown
-[![GitHub Profile](https://github-profile-widget.vercel.app/?lucaspsouza&theme=black)](https://github.com/lucaspsouza)
-```
-
-> [!NOTE]
-> Since GitHub READMEs don't support arbitrary JavaScript or IFrames directly for security, this "API link" approach is best used as a link that opens your beautiful profile card, or if you deploy this to a service that renders HTML to SVG.
-
-## Quick install
+## Quick install (for websites)
 
 Include script and style just before `</body>` tag:
 
-```
-<script type="text/javascript" src="https://piotrl.github.io/github-profile-card/dist/gh-profile-card.min.js"></script>
+```html
+<script type="text/javascript" src="https://github-profile-widget.vercel.app/dist/gh-profile-card.min.js"></script>
 ```
 
 Include HTML code anywhere you would like to place widget:
 
-```
-<div id="github-card"
-     data-username="YOUR_GITHUB_USERNAME">
-</div>
-```
-
-Great! Widget will autoload. We're done here.
-
-## Download
-
-With [_npm_](https://www.npmjs.com/package/github-profile-card)
-
-```
-npm install github-profile-card --save
-```
-
-## Advanced configuration
-
-Configure widget in HTML:
-
-```
-<div id="github-card"
-     data-username="YOUR_GITHUB_USERNAME"
-     data-max-repos="3"
-     data-sort-by="stars"
-     data-header-text="Most starred repositories">
-</div>
-```
-
-For special usages, it is possible to configure widget(s) in JavaScript.
-You have to use different template than `#github-card`.
-
-```
-var widget = new GitHubCard({
-    username: 'YOUR_GITHUB_USERNAME'
-    template: '#github-card-demo',
-    sortBy: 'stars',
-    reposHeaderText: 'Most starred',
-    maxRepos: 5,
-    hideTopLanguages: false,
-});
-
-widget.init();
+```html
+<div id="github-card" data-username="YOUR_GITHUB_USERNAME"></div>
 ```
 
 ## Configuration options
@@ -109,7 +72,7 @@ widget.init();
 | HTML option (`data-` prefix) | JavaScript option  | Default                     | Details                                                                                                                          |
 | ---------------------------- | ------------------ | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `username`                   | `username`         | None                        | GitHub profile username                                                                                                          |
-| `—`                          | `template`         | `#github-card`              | DOM selector of your widget in HTML                                                                                              |
+| `theme`                      | `theme`            | `light`                     | Theme to use (`light` or `black`)                                                                                                |
 | `sort-by`                    | `sortBy`           | `stars`                     | Repositories sorting method (`stars` or `updateTime`)                                                                            |
 | `max-repos`                  | `maxRepos`         | `5`                         | Amount of listed repositories. `0` disables section                                                                              |
 | `header-text`                | `headerText`       | `Most starred repositories` | Text label above repositories list                                                                                               |
@@ -117,41 +80,10 @@ widget.init();
 
 ## FAQ
 
-- **My language statistic is affected by libraries and dependencies**
-
-  Consider ignoring them with .gitattributes: [My repository is detected as the wrong language](https://github.com/github/linguist#overrides)
-
-- **How language statistic is build?**
-
-  It is sum of all characters written in language you use.
-  One big repository in `C#` will be ranked higher than many small `JavaScript` repositories.
-
+- **How language statistic is built?**
   It is based on 10 last updated repositories, to represent your current interests.
 
-- **How to show two or more profiles on page?**
-
-  You have to create two widgets with different ID, then initialize each manually in JS.
-
-  e.g.
-
-  ```
-  <div id="github-card-1" data-username="user1"></div>
-  <div id="github-card-2" data-username="user2"></div>
-
-  <script>
-      new GitHubCard({ template: '#github-card-1' }).init();
-      new GitHubCard({ template: '#github-card-2' }).init();
-  </script>
-  ```
-
 ## Feedback
-
 I love feedback, send me one!
-
 - show me website on which you're using this widget: [leave comment](https://github.com/piotrl/github-profile-card/issues/15)
-- ping me on twitter: [@constjs](https://twitter.com/constjs)
 - create [new issue](https://github.com/piotrl/github-profile-card/issues/new)
-
-Remember no other libraries required. It's like gluten free 😉
-
-![gluten-free](http://forthebadge.com/images/badges/gluten-free.svg)
