@@ -11,6 +11,7 @@
 
 - [GitHub Profile Card](#github-profile-card)
   - [Main features](#main-features)
+  - [README-friendly usage (API style)](#readme-friendly-usage-api-style)
   - [Live demo and configuration](#live-demo-and-configuration)
   - [Changelog](#changelog)
 - [Quick install](#quick-install)
@@ -29,6 +30,24 @@
 - No jQuery and any other libraries required
 
 ### [Changelog](https://github.com/piotrl/github-profile-card/releases)
+
+### README-friendly usage (API style)
+
+You can use this widget directly in your GitHub profile README by linking to it. The simplest way is to use an `<iframe>` or a direct link that people can click to see your card.
+
+**URL Format:**
+`https://github-profile-widget.vercel.app/?username=YOUR_USERNAME&theme=black`
+
+*Tip: You can also use the shorthand `?YOUR_USERNAME`*
+
+**Example for README:**
+
+```markdown
+[![GitHub Profile](https://github-profile-widget.vercel.app/?lucaspsouza&theme=black)](https://github.com/lucaspsouza)
+```
+
+> [!NOTE]
+> Since GitHub READMEs don't support arbitrary JavaScript or IFrames directly for security, this "API link" approach is best used as a link that opens your beautiful profile card, or if you deploy this to a service that renders HTML to SVG.
 
 ## Quick install
 
