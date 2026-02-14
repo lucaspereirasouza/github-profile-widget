@@ -72,11 +72,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   
   <text x="110" y="40" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="22" font-weight="600" fill="${textColor}">${profile.name || profile.login}</text>
   
-  <!-- Follow Button (Visual only) -->
-  <rect x="110" y="55" width="160" height="28" rx="3" fill="#fafafa" stroke="#d5d5d5"/>
-  <text x="120" y="73" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#333">Follow @${profile.login}</text>
-  <rect x="275" y="55" width="30" height="28" rx="2" fill="#fff" stroke="#bbb"/>
-  <text x="280" y="73" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" fill="#444">${profile.followers}</text>
+  <text x="110" y="65" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" fill="${starColor}">${profile.followers} followers</text>
 
   <!-- Languages -->
   <line x1="15" y1="115" x2="365" y2="115" stroke="${borderColor}"/>

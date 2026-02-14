@@ -49,12 +49,12 @@ export class DOMOperator {
     $info.className = 'info';
 
     const $name = createName(data.html_url, data.name || data.login);
-    const $followButton = createFollowButton(data.login, data.html_url);
-    const $followers = createFollowers(data.followers);
-    const $followContainer = createFollowContainer([$followButton, $followers]);
+    const $followers = document.createElement('span');
+    $followers.className = 'followers-simple';
+    $followers.textContent = `${data.followers} followers`;
 
     $info.appendChild($name);
-    $info.appendChild($followContainer);
+    $info.appendChild($followers);
 
     const $header = document.createElement('div');
     $header.className = 'header-container';
