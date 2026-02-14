@@ -43,14 +43,29 @@ export class DOMOperator {
   }
 
   public static createProfile(data: ApiProfile): HTMLDivElement {
+    const $avatar = createAvatar(data.avatar_url);
+
+    const $info = document.createElement('div');
+    $info.className = 'info';
+
+    const $name = createName(data.html_url, data.name || data.login);
     const $followButton = createFollowButton(data.login, data.html_url);
     const $followers = createFollowers(data.followers);
     const $followContainer = createFollowContainer([$followButton, $followers]);
 
-    const $avatar = createAvatar(data.avatar_url);
-    const $name = createName(data.html_url, data.name);
+    $info.appendChild($name);
+    $info.appendChild($followContainer);
 
-    return createProfile([$avatar, $name, $followContainer]);
+    const $header = document.createElement('div');
+    $header.className = 'header-container';
+    $header.appendChild($avatar);
+    $header.appendChild($info);
+
+    const $profile = document.createElement('div');
+    $profile.className = 'profile';
+    $profile.appendChild($header);
+
+    return $profile as HTMLDivElement;
   }
 
   public static createTopLanguagesSection(): HTMLUListElement {
@@ -116,7 +131,9 @@ export class DOMOperator {
     $repoLink.href = repository.html_url;
     $repoLink.title = repository.description || '';
 
-    // Create elements safely to prevent XSS
+    const $repoInfo = document.createElement('div');
+    $repoInfo.className = 'repo-info';
+
     const $repoName = document.createElement('span');
     $repoName.className = 'repo-name';
     $repoName.textContent = repository.name;
@@ -125,12 +142,14 @@ export class DOMOperator {
     $updated.className = 'updated';
     $updated.textContent = `Updated: ${updated.toLocaleDateString()}`;
 
+    $repoInfo.appendChild($repoName);
+    $repoInfo.appendChild($updated);
+
     const $star = document.createElement('span');
     $star.className = 'star';
     $star.textContent = String(repository.stargazers_count);
 
-    $repoLink.appendChild($repoName);
-    $repoLink.appendChild($updated);
+    $repoLink.appendChild($repoInfo);
     $repoLink.appendChild($star);
 
     return $repoLink;

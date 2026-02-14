@@ -1,119 +1,115 @@
 .profile {
   background: var(--gh-card-bg);
   overflow: hidden;
-  padding: 15px 10px;
-  padding-bottom: 0;
+  padding: 15px;
 }
 
-.stats {
-  padding: 5px;
+.header-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  margin-right: 15px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.5em;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+.followMe {
+  display: flex;
+  align-items: center;
+}
+
+.follow-button {
+  font-size: 0.85em;
+  color: #333;
+  padding: 4px 12px;
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  font-weight: bold;
+  background: #fafafa;
+  background-image: linear-gradient(#fafafa, #eaeaea);
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background: #eee;
+  }
+}
+
+.followers {
+  position: relative;
+  background: #fff;
+  margin-left: 10px;
+  padding: 2px 6px;
+  color: #444;
+  font-size: 0.8em;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  min-width: 20px;
+  text-align: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 6px;
+    left: -4px;
+    top: 50%;
+    margin-top: -3px;
+    background: inherit;
+    border-left: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+    transform: rotate(-45deg);
+  }
 }
 
 .languages {
-  & {
-    position: relative;
-    clear: both;
-    margin: 0 -10px;
-    padding: 10px;
-    min-height: 36px;
-
-    border-top: 1px solid #dedede;
-    font-size: 0.8em;
-  }
+  margin: 15px 0 0 0;
+  padding: 10px 0 0 0;
+  border-top: 1px solid var(--gh-card-border);
+  list-style: none;
+  font-size: 0.9em;
 
   &::before {
-    position: absolute;
-    top: -0.7em;
-    background: var(--gh-card-bg);
-    padding-right: 5px;
     content: 'Top languages';
+    display: block;
+    font-size: 0.85em;
     font-style: italic;
     color: var(--gh-card-text);
+    margin-bottom: 5px;
   }
 
   li {
     display: inline-block;
-    color: #444;
+    color: var(--gh-card-text);
     font-weight: bold;
-    margin-left: 10px;
+    margin-right: 15px;
 
     &::after {
       content: '\2022';
       margin-left: 10px;
-      color: var(--gh-card-text);
-      opacity: 0.5;
+      opacity: 0.3;
     }
 
     &:last-child::after {
       content: '';
     }
   }
-}
-
-.followMe {
-  margin-top: 3px;
-}
-
-.follow-button {
-  font-size: 0.8em;
-  color: #333;
-  float: left;
-  padding: 0 10px;
-  line-height: 1.5em;
-  border: 1px solid #d5d5d5;
-  border-radius: 3px;
-  font-weight: bold;
-  background: #eaeaea;
-  background-image: linear-gradient(#fafafa, #eaeaea);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.follow-button:hover {
-  color: inherit;
-  background: #ddd;
-  background-image: linear-gradient(#eee, #ddd);
-}
-
-/* followers number */
-.followMe span {
-  position: relative;
-  background: var(--gh-card-bg);
-  margin-left: 8px;
-  padding: 0 5px;
-  color: #444;
-  font-size: 0.8em;
-  border: 1px solid;
-  border-color: #bbb;
-}
-
-.followMe span::before {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 5px;
-  height: 5px;
-  left: -4px;
-  top: 30%;
-  background: inherit;
-  border-left: 1px solid;
-  border-top: 1px solid;
-  border-color: inherit;
-  -moz-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
-.avatar {
-  width: 64px;
-  height: 64px;
-  float: left;
-  margin: 0 10px 15px 0;
-  margin-left: 0;
-  border-radius: 5px;
-  box-shadow: 0 0 2px 0 #ddd;
 }

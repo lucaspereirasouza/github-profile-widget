@@ -25,7 +25,6 @@ Add this to your `README.md`:
 [![Interactive Profile Card](https://img.shields.io/badge/Interactive-Profile%20Card-blue?style=for-the-badge&logo=github)](https://github-profile-widget.vercel.app/?lucaspereirasouza&theme=black)
 ```
 
-*(Replace `lucaspereirasouza` with your username)*
 
 #### 2. Advanced: URL Options
 You can link directly to your card using this format:
