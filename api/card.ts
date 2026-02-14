@@ -44,9 +44,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Sort and slice repos
         const sortedRepos = repos
             .sort((a: any, b: any) => {
+                if (b.stargazers_count !== a.stargazers_count) {
+                    return b.stargazers_count - a.stargazers_count;
+                }
                 const dateA = new Date(a.updated_at).getTime();
                 const dateB = new Date(b.updated_at).getTime();
-                return dateB - dateA; // Sort by update time to match screenshot
+                return dateB - dateA;
             })
             .slice(0, 5);
 
