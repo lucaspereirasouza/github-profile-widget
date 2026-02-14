@@ -16,22 +16,28 @@
 
 ### 🚀 Use in your GitHub Profile README
 
-To add this widget to your GitHub Profile, you should use it as a **Link**. GitHub does not support embedding interactive HTML directly in READMEs for security reasons.
+To add your profile card to your GitHub README, you can now use it as a **Dynamic Image**. This is the best way to show your status directly in your profile!
 
-#### 1. Copy & Paste this Snippet
-Add this to your `README.md`:
+#### 1. Quick Image (Recommended)
+Copy and paste this into your `README.md`:
 
 ```markdown
-[![Interactive Profile Card](https://img.shields.io/badge/Interactive-Profile%20Card-blue?style=for-the-badge&logo=github)](https://github-profile-widget.vercel.app/?lucaspereirasouza&theme=black)
+![My GitHub Profile](https://github-profile-widget.vercel.app/api/card?username=YOUR_USERNAME&theme=black)
 ```
 
+#### 2. Interactive Link
+If you want people to be able to click and see your full interactive card:
 
-#### 2. Advanced: URL Options
-You can link directly to your card using this format:
-`https://your-deployment.vercel.app/?YOUR_USERNAME&theme=black`
+```markdown
+[![Interactive Profile Card](https://img.shields.io/badge/Interactive-Profile%20Card-blue?style=for-the-badge&logo=github)](https://github-profile-widget.vercel.app/?username=YOUR_USERNAME&theme=black)
+```
 
-*   **Theme**: Use `&theme=black` for dark mode.
-*   **Username**: You can use `?username=name` or just `?name`.
+#### 3. URL Format
+*   **Image Mode**: `https://github-profile-widget.vercel.app/api/card?username=name&theme=black`
+*   **Interactive Mode**: `https://github-profile-widget.vercel.app/?username=name&theme=black`
+
+> [!TIP]
+> **Themes**: Use `&theme=black` for dark mode or remove it for the default light theme.
 
 ---
 
